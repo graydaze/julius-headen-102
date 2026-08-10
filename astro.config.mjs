@@ -7,6 +7,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [icon()]
+  integrations: [icon()], // <-- Ensure this comma exists
   site: 'https://jah102.com',
 });
