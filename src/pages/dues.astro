@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Layout title="Dues">
+	<div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+		<h1 class="font-serif text-4xl font-bold text-[#0A192F] mb-6 border-b-4 border-[#D4AF37] inline-block pb-2">
+			Pay Dues
+		</h1>
+		
+		<div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-[#D4AF37]">
+			<h2 class="font-serif text-2xl font-bold text-[#0A192F] mb-4">Annual Lodge Dues</h2>
+			<p class="text-lg text-gray-700 mb-8">
+				Keeping your dues current ensures you remain in good standing and supports the ongoing operations, charitable efforts, and upkeep of our lodge.
+			</p>
+			
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 items-stretch">
+				
+				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col shadow-sm h-full">
+	<h3 class="text-lg font-bold text-[#0A192F] mb-4 border-b border-gray-300 pb-2 w-full text-center">Credit, Debit, or Venmo</h3>
+	<div id="paypal-container-BZLY36AAYDU7G" class="w-full mt-auto block"></div>
+</div>
+
+				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center shadow-sm h-full">
+					<h3 class="text-lg font-bold text-[#0A192F] mb-4 border-b border-gray-300 pb-2 w-full text-center">Cash App</h3>
+					
+					<div class="text-center text-gray-600 text-sm mb-6 flex-grow flex flex-col justify-center">
+						<p class="font-semibold text-base text-gray-800">Dues Payment</p>
+						<p>Pay instantly via mobile device</p>
+					</div>
+
+					<a href="https://cash.app/$JuliusAHeadenLodge"
+					   target="_blank"
+					   rel="noopener noreferrer"
+					   class="w-full mt-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-white bg-[#00D632] hover:bg-[#00B82B] transition-colors duration-200 shadow">
+						<Icon name="tabler:currency-dollar" class="w-6 h-6 mr-2" />
+						Pay with Cash App
+					</a>
+				</div>
+			</div>
+			
+			<div class="pt-8 border-t border-gray-200">
+				<div class="flex items-center mb-4">
+					<Icon name="tabler:mail" class="w-6 h-6 text-[#D4AF37] mr-3" />
+					<h3 class="text-xl font-bold text-[#0A192F]">Pay by Mail</h3>
+				</div>
+				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
+					<p class="text-gray-600">
+						Please make checks payable to <strong class="text-[#0A192F]">Julius A. Headen Lodge No. 102</strong> and mail them directly to the Lodge Secretary.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script is:inline src="https://www.paypal.com/sdk/js?client-id=BAAsMIMScw2kDjHs0yz7YXeHW_X0ECw0DqpIihnBq51s9AOnnpjv-asqStcHYjbCx4mWknWwReBqaKgDfg&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
+	<script is:inline>
+		paypal.HostedButtons({
+			hostedButtonId: "BZLY36AAYDU7G",
+		}).render("#paypal-container-BZLY36AAYDU7G")
+	</script>
+</Layout>

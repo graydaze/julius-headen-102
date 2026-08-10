@@ -1,11 +1,37 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Button from '../components/Button.astro';
+import Card from '../components/Card.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home">
+	<div class="relative bg-cover bg-center py-24 md:py-32 rounded-2xl overflow-hidden shadow-2xl text-center mt-4 border-b-4 border-[#D4AF37]" 
+		 style="background-image: url('https://images.unsplash.com/photo-1548625361-ecce1ceefae6?q=80&w=2070&auto=format&fit=crop');">
+		
+		<div class="absolute inset-0 bg-[#0A192F]/85"></div>
+		
+		<div class="relative z-10 flex flex-col items-center justify-center px-6">
+			<h1 class="font-serif text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-md">
+				Julius A. Headen <br class="md:hidden" /> Lodge No. 102
+			</h1>
+			<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium">
+				Making good men better through brotherhood, relief, and truth. Welcome to our digital home.
+			</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4">
+				<Button href="/history" text="Our History" variant="primary" />
+				<Button href="/contact" text="Contact the Lodge" variant="secondary" />
+			</div>
+		</div>
+	</div>
+
+	<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+		<Card title="Upcoming Events" borderColor="navy">
+			<p class="text-gray-600">Events managed by the lodge officers will appear here dynamically once the CMS is connected.</p>
+		</Card>
+
+		<Card title="Lodge Leadership" borderColor="gold">
+			<p class="text-gray-600">Current officers and their contact information will be listed here.</p>
+		</Card>
+	</div>
 </Layout>

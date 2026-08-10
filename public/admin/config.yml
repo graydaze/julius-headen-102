@@ -1,0 +1,56 @@
+backend:
+  name: github
+  repo: your-github-username/julius-headen-102 # UPDATE THIS to your actual repo
+  branch: main 
+
+# This tells Decap to save uploaded photos to public/images/uploads
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Automatically publish when officers click "Publish"
+publish_mode: simple
+
+collections:
+  - name: "officers"
+    label: "Officers"
+    folder: "src/content/officers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Title (e.g., Worshipful Master)", name: "role", widget: "string" }
+      - { label: "Photo", name: "image", widget: "image", required: false }
+
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Event Name", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+      - { label: "Time", name: "time", widget: "string" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "src/content/pages/home.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - label: "History"
+        name: "history"
+        file: "src/content/pages/history.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - label: "Who are Masons?"
+        name: "masons"
+        file: "src/content/pages/masons.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }

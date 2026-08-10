@@ -1,0 +1,26 @@
+---
+interface Props {
+	href?: string;
+	text: string;
+	variant?: 'primary' | 'secondary';
+	class?: string;
+}
+
+const { href, text, variant = 'primary', class: className = '' } = Astro.props;
+
+const baseStyle = "font-bold px-8 py-3 rounded-md shadow-lg transition-all duration-200 inline-block text-center";
+const primaryStyle = "bg-[#D4AF37] text-[#0A192F] hover:bg-yellow-500 transform hover:-translate-y-0.5";
+const secondaryStyle = "bg-transparent text-[#D4AF37] hover:bg-white/10 border-2 border-[#D4AF37]";
+
+const combinedStyle = `${baseStyle} ${variant === 'primary' ? primaryStyle : secondaryStyle} ${className}`;
+---
+
+{href ? (
+	<a href={href} class={combinedStyle}>
+		{text}
+	</a>
+) : (
+	<button class={combinedStyle}>
+		{text}
+	</button>
+)}

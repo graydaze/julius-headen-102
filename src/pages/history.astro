@@ -1,0 +1,29 @@
+---
+// src/pages/history.astro
+import Layout from '../layouts/Layout.astro';
+import JuliusHeadenHistory from '../components/JuliusHeadenHistory.astro';
+---
+
+<Layout title="History - Julius A. Headen Lodge No. 102">
+	<!-- Page Header -->
+	<div class="max-w-6xl mx-auto pt-12 px-4 sm:px-6 lg:px-8">
+		<h1 class="font-serif text-4xl font-bold text-[#0A192F] mb-2 border-b-4 border-[#D4AF37] inline-block pb-2">
+			Our History
+		</h1>
+		<p class="text-lg text-gray-700 mt-4 max-w-3xl">
+			The rich history of Julius A. Headen Lodge No. 102 is built upon a foundation of brotherhood, relief, and truth.
+		</p>
+	</div>
+	
+	<!-- Injected History Component -->
+	<JuliusHeadenHistory />
+	
+	<!-- CMS Integration Hook -->
+	<div class="max-w-6xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
+		<div class="bg-gray-50 p-6 rounded-md border-l-4 border-[#0A192F] mt-8 shadow-sm">
+			<p class="italic text-gray-600 text-sm">
+				[CMS Note: Future dynamic markdown content injected via the admin dashboard will render here, complementing the static history.]
+			</p>
+		</div>
+	</div>
+</Layout>

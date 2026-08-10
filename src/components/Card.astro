@@ -1,0 +1,15 @@
+---
+interface Props {
+	title: string;
+	borderColor?: 'navy' | 'gold';
+}
+
+const { title, borderColor = 'navy' } = Astro.props;
+
+const borderClass = borderColor === 'gold' ? 'border-[#D4AF37]' : 'border-[#0A192F]';
+---
+
+<div class={`bg-white p-8 rounded-xl shadow-sm border-t-4 ${borderClass} hover:shadow-md transition-shadow duration-200`}>
+	<h2 class="font-serif text-2xl font-bold text-[#0A192F] mb-4">{title}</h2>
+	<slot /> 
+</div>
