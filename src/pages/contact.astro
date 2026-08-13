@@ -1,0 +1,28 @@
+---
+// Import the Icon component from the integration you installed earlier
+import { Icon } from 'astro-icon/components';
+
+// Define the target Instagram URL
+const instagramUrl = "https://instagram.com/juliusaheaden102";
+---
+
+<section class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
+  <h2 class="text-3xl font-extrabold text-[#0A192F] tracking-tight">Connect With Us</h2>
+  <div class="w-16 h-1 bg-[#D4AF37] mx-auto mt-4 mb-8 rounded-full"></div>
+  
+  <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+    For inquiries, community outreach, or to learn more about our upcoming events, reach out to us directly on Instagram. Our officers monitor the page and will respond promptly.
+  </p>
+
+  <a 
+    href={instagramUrl}
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-tr from-pink-600 to-purple-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+    aria-label="Follow Julius A. Headen Lodge No. 102 on Instagram"
+  >
+    <!-- Renders the Instagram icon -->
+    <Icon name="mdi:instagram" class="w-6 h-6" />
+    <span>Message us on Instagram</span>
+  </a>
+</section>
