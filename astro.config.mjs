@@ -6,5 +6,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://jah102.com',
+  site: 'https://jah102.com'
 });
