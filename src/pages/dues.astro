@@ -1,60 +1,183 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import MasonicDivider from '../components/MasonicDivider.astro';
 ---
 
-<Layout title="Dues">
-	<div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-		<h1 class="font-serif text-4xl font-bold text-[#0A192F] mb-6 border-b-4 border-[#D4AF37] inline-block pb-2">
-			Pay Dues
-		</h1>
-		
-		<div class="bg-white p-8 rounded-xl shadow-sm border-t-4 border-[#D4AF37]">
-			<h2 class="font-serif text-2xl font-bold text-[#0A192F] mb-4">Annual Lodge Dues</h2>
-			<p class="text-lg text-gray-700 mb-8">
-				Keeping your dues current ensures you remain in good standing and supports the ongoing operations, charitable efforts, and upkeep of our lodge.
-			</p>
-			
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 items-stretch">
-				
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col shadow-sm h-full">
-	<h3 class="text-lg font-bold text-[#0A192F] mb-4 border-b border-gray-300 pb-2 w-full text-center">Credit, Debit, or Venmo</h3>
-	<div id="paypal-container-BZLY36AAYDU7G" class="w-full mt-auto block"></div>
-</div>
+<Layout
+  title="Dues & Support"
+  description="Submit annual Lodge dues or support charitable initiatives for Julius A. Headen Lodge No. 102 in Federal Way, Washington."
+>
+  <!-- Page Banner -->
+  <section class="relative mosaic-pavement text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#D4AF37]">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(212,175,55,0.14),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <p class="text-xs uppercase tracking-[0.28em] text-[#D4AF37] font-semibold mb-3">
+        Lodge Treasury &amp; Stewardship
+      </p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-wide text-gold-gradient">
+        Lodge Dues &amp; Support
+      </h1>
+      <MasonicDivider dark={true} />
+      <p class="text-gray-200/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Keeping your dues current ensures you remain in good standing and directly sustains the operations, fellowship, and charitable relief of Julius A. Headen Lodge No. 102.
+      </p>
+    </div>
+  </section>
 
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 flex flex-col items-center shadow-sm h-full">
-					<h3 class="text-lg font-bold text-[#0A192F] mb-4 border-b border-gray-300 pb-2 w-full text-center">Cash App</h3>
-					
-					<div class="text-center text-gray-600 text-sm mb-6 flex-grow flex flex-col justify-center">
-						<p class="font-semibold text-base text-gray-800">Dues Payment</p>
-						<p>Pay instantly via mobile device</p>
-					</div>
+  <!-- Payment Options Section -->
+  <section class="max-w-5xl mx-auto py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <!-- Option 1: PayPal Hosted Button -->
+      <div class="reveal bg-[#0A192F] text-white rounded-sm p-8 border border-[#D4AF37]/40 border-t-4 border-t-[#D4AF37] shadow-lg flex flex-col">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full bg-[#06101F] border border-[#D4AF37]/50 text-[#F4D03F] flex items-center justify-center shrink-0">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="5" width="20" height="14" rx="2" />
+              <line x1="2" y1="10" x2="22" y2="10" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.22em] text-[#D4AF37] font-semibold">
+              Option 1
+            </p>
+            <h2 class="text-2xl font-bold text-white tracking-wide">
+              PayPal, Card, or Venmo
+            </h2>
+          </div>
+        </div>
 
-					<a href="https://cash.app/$JuliusAHeadenLodge"
-					   target="_blank"
-					   rel="noopener noreferrer"
-					   class="w-full mt-auto inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-bold rounded-md text-white bg-[#00D632] hover:bg-[#00B82B] transition-colors duration-200 shadow">
-						Pay with Cash App
-					</a>
-				</div>
-			</div>
-			
-			<div class="pt-8 border-t border-gray-200">
-				<div class="flex items-center mb-4">
-					<h3 class="text-xl font-bold text-[#0A192F]">Pay by Mail</h3>
-				</div>
-				<div class="bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-sm">
-					<p class="text-gray-600">
-						Please make checks payable to <strong class="text-[#0A192F]">Julius A. Headen Lodge No. 102</strong> and mail them directly to the Lodge Secretary.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        <p class="text-sm text-gray-300 leading-relaxed mb-6">
+          Pay securely online using PayPal, Venmo, or any major credit or debit card via our official Lodge hosted checkout.
+        </p>
 
-	<script is:inline src="https://www.paypal.com/sdk/js?client-id=BAAsMIMScw2kDjHs0yz7YXeHW_X0ECw0DqpIihnBq51s9AOnnpjv-asqStcHYjbCx4mWknWwReBqaKgDfg&components=hosted-buttons&enable-funding=venmo&currency=USD"></script>
-	<script is:inline>
-		paypal.HostedButtons({
-			hostedButtonId: "BZLY36AAYDU7G",
-		}).render("#paypal-container-BZLY36AAYDU7G")
-	</script>
+        <div class="mt-auto bg-white rounded-sm p-5 border border-[#D4AF37]/30 min-h-[120px] flex flex-col justify-center">
+          <div id="paypal-container-BZLY36AAYDU7G" class="w-full"></div>
+          <noscript>
+            <p class="text-sm text-[#0A192F] text-center">
+              JavaScript is required to load the PayPal Hosted Checkout button.
+            </p>
+          </noscript>
+        </div>
+      </div>
+
+      <!-- Option 2: Cash App -->
+      <div
+        class="reveal bg-white text-[#0A192F] rounded-sm p-8 border border-[#D4AF37]/40 border-t-4 border-t-[#D4AF37] shadow-lg flex flex-col"
+        style="transition-delay: 100ms;"
+      >
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center shrink-0">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="12" y1="2" x2="12" y2="22" />
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.22em] text-[#9E7B1C] font-semibold">
+              Option 2
+            </p>
+            <h2 class="text-2xl font-bold text-[#0A192F] tracking-wide">
+              Cash App
+            </h2>
+          </div>
+        </div>
+
+        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+          Submit your annual dues or charitable contribution directly from your mobile device using our official Cash App cashtag.
+        </p>
+
+        <div class="bg-[#F8F6F0] border border-[#D4AF37]/30 rounded-sm p-5 text-center mb-6">
+          <p class="text-xs uppercase tracking-[0.2em] text-[#9E7B1C] font-semibold">
+            Official Cashtag
+          </p>
+          <p class="mt-1 font-display text-lg sm:text-xl font-bold text-[#0A192F]">
+            $JuliusAHeadenLodge
+          </p>
+          <p class="mt-2 text-xs text-gray-500">
+            Please include your full name and &ldquo;Annual Dues&rdquo; in the payment note.
+          </p>
+        </div>
+
+        <a
+          href="https://cash.app/$JuliusAHeadenLodge"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-gold-shimmer mt-auto w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-sm text-sm font-bold uppercase tracking-wider text-[#06101F] shadow-md hover:-translate-y-0.5 transition-transform"
+        >
+          <span>Pay with Cash App</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+            <polyline points="15 3 21 3 21 9" />
+            <line x1="10" y1="14" x2="21" y2="3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Supplementary Note -->
+    <div class="reveal mt-10 bg-white rounded-sm p-6 sm:p-8 border border-[#D4AF37]/30 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div>
+        <h3 class="text-lg font-bold text-[#0A192F] tracking-wide">
+          Questions About Your Dues or Standing?
+        </h3>
+        <p class="mt-1 text-sm text-gray-600">
+          For payment receipts, check mailing instructions, or membership inquiries, please reach out directly to the Lodge Secretary.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        class="shrink-0 inline-flex items-center justify-center px-6 py-2.5 border border-[#0A192F] text-[#0A192F] text-xs uppercase tracking-[0.16em] font-semibold rounded-sm hover:bg-[#0A192F] hover:text-[#F4D03F] transition-colors"
+      >
+        Contact Secretary
+      </a>
+    </div>
+  </section>
+
+  <!-- PayPal Hosted Button SDK -->
+  <script
+    is:inline
+    src="https://www.paypal.com/sdk/js?client-id=BAAsMIMScw2kDjHs0yz7YXeHW_X0ECw0DqpIihnBq51s9AOnnpjv-asqStcHYjbCx4mWknWwReBqaKgDfg&components=hosted-buttons&enable-funding=venmo&currency=USD"
+  ></script>
+  <script is:inline>
+    if (typeof window !== 'undefined' && window.paypal && window.paypal.HostedButtons) {
+      window.paypal
+        .HostedButtons({
+          hostedButtonId: 'BZLY36AAYDU7G',
+        })
+        .render('#paypal-container-BZLY36AAYDU7G');
+    }
+  </script>
 </Layout>

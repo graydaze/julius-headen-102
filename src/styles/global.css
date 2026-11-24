@@ -1,6 +1,106 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Cinzel', serif;
+  --font-display: "Cinzel", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --color-navy-deep: #06101F;
+  --color-navy-lodge: #0A192F;
+  --color-gold-metallic: #D4AF37;
+  --color-gold-bright: #F4D03F;
+  --color-gold-antique: #9E7B1C;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Pure CSS diagonal checkered Mosaic Pavement pattern */
+.mosaic-pavement {
+  background-color: var(--color-navy-deep);
+  background-image:
+    linear-gradient(45deg, rgba(212, 175, 55, 0.045) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(212, 175, 55, 0.045) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(212, 175, 55, 0.045) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(212, 175, 55, 0.045) 75%);
+  background-size: 48px 48px;
+  background-position: 0 0, 0 24px, 24px -24px, -24px 0;
+}
+
+/* Metallic gold gradient text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #9E7B1C 0%, #F4D03F 48%, #D4AF37 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic gold button with diagonal white shimmer on hover */
+.btn-gold-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #9E7B1C 0%, #D4AF37 45%, #F4D03F 65%, #B8860B 100%);
+}
+
+.btn-gold-shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-22deg);
+  transition: left 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn-gold-shimmer:hover::after {
+  left: 145%;
+}
+
+/* Scroll-triggered reveal animation (paired with IntersectionObserver in Layout.astro) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn-gold-shimmer::after {
+    transition: none;
+  }
 }

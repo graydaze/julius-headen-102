@@ -1,0 +1,424 @@
+---
+export type JewelType =
+  | 'square'
+  | 'level'
+  | 'plumb'
+  | 'keys'
+  | 'pens'
+  | 'book'
+  | 'sun'
+  | 'moon'
+  | 'cornucopia'
+  | 'batons'
+  | 'sword';
+
+interface Props {
+  jewel: JewelType;
+  size?: number;
+  class?: string;
+}
+
+const { jewel, size = 32, class: className = '' } = Astro.props;
+---
+
+{
+  jewel === 'square' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Worshipful Master: Builder's Square */}
+      <polygon
+        points="24,41 6,23 11,18 24,31 37,18 42,23"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M12.5 24.5L14.5 22.5M16.5 28.5L18.5 26.5M35.5 24.5L33.5 22.5M31.5 28.5L29.5 26.5"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+      <circle cx="24" cy="36" r="1.4" fill="currentColor" />
+    </svg>
+  )
+}
+
+{
+  jewel === 'level' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Senior Warden: Mason's Level */}
+      <path
+        d="M7 37H41"
+        stroke="currentColor"
+        stroke-width="2.8"
+        stroke-linecap="round"
+      />
+      <path
+        d="M24 10L10 37M24 10L38 37"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M16 26H32"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M24 13V30"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+      <circle cx="24" cy="32" r="2.5" fill="currentColor" />
+    </svg>
+  )
+}
+
+{
+  jewel === 'plumb' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Junior Warden: Plumb Rule */}
+      <path
+        d="M12 10H36"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <path
+        d="M16 10V38H32V10"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M24 10V26"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+      <polygon
+        points="24,25 27.5,30.5 24,35 20.5,30.5"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="currentColor"
+        fill-opacity="0.25"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'keys' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Treasurer: Crossed Keys */}
+      <circle cx="14" cy="14" r="5" stroke="currentColor" stroke-width="2.3" />
+      <path
+        d="M17.8 17.8L35 35M31 31L27.5 34.5M34.5 34.5L31 38"
+        stroke="currentColor"
+        stroke-width="2.3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <circle cx="34" cy="14" r="5" stroke="currentColor" stroke-width="2.3" />
+      <path
+        d="M30.2 17.8L13 35M17 31L20.5 34.5M13.5 34.5L17 38"
+        stroke="currentColor"
+        stroke-width="2.3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'pens' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Secretary: Crossed Quill Pens */}
+      <path
+        d="M10 38L37 11"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M21 27C22 19 28 12 37 11C36 20 29 26 21 27Z"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="currentColor"
+        fill-opacity="0.18"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M38 38L11 11"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+      />
+      <path
+        d="M27 27C26 19 20 12 11 11C12 20 19 26 27 27Z"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="currentColor"
+        fill-opacity="0.18"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'book' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Chaplain: Open Volume of Sacred Law */}
+      <path
+        d="M24 14C19.5 11.2 13 11 8 13.5V35.5C13 33 19.5 33.2 24 36C28.5 33.2 35 33 40 35.5V13.5C35 11 28.5 11.2 24 14Z"
+        stroke="currentColor"
+        stroke-width="2.3"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M24 14V36"
+        stroke="currentColor"
+        stroke-width="2.1"
+        stroke-linecap="round"
+      />
+      <path
+        d="M12.5 19.5H19.5M12.5 24.5H19.5M28.5 19.5H35.5M28.5 24.5H35.5"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'sun' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Senior Deacon: Radiant Sun */}
+      <circle
+        cx="24"
+        cy="24"
+        r="8"
+        stroke="currentColor"
+        stroke-width="2.4"
+        fill="currentColor"
+        fill-opacity="0.18"
+      />
+      <path
+        d="M24 6V11.5M24 36.5V42M6 24H11.5M36.5 24H42M11.3 11.3L15.2 15.2M32.8 32.8L36.7 36.7M36.7 11.3L32.8 15.2M15.2 32.8L11.3 36.7"
+        stroke="currentColor"
+        stroke-width="2.3"
+        stroke-linecap="round"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'moon' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Junior Deacon: Crescent Moon */}
+      <path
+        d="M31.5 11.5A13.5 13.5 0 1 0 36.5 32A10.5 10.5 0 1 1 31.5 11.5Z"
+        stroke="currentColor"
+        stroke-width="2.4"
+        fill="currentColor"
+        fill-opacity="0.18"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M33 17V21M31 19H35"
+        stroke="currentColor"
+        stroke-width="1.9"
+        stroke-linecap="round"
+      />
+      <circle cx="38" cy="24" r="1.4" fill="currentColor" />
+    </svg>
+  )
+}
+
+{
+  jewel === 'cornucopia' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Senior & Junior Stewards: Cornucopia */}
+      <path
+        d="M10 36C12 24 19 16 30 13C34.5 11.8 38 14.8 36.8 19.2C33.5 28.5 23.5 34.5 11.5 37.2C10.5 37.4 9.8 36.8 10 36Z"
+        stroke="currentColor"
+        stroke-width="2.3"
+        fill="currentColor"
+        fill-opacity="0.15"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M27.5 14C30 17.5 32.5 21 35 23.5M20.5 20.5C23 23.5 25.5 26 28 28M15 27.5C17 29.5 19 31.5 21 33"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+      <circle cx="36.5" cy="11.5" r="2.2" fill="currentColor" />
+      <circle cx="40" cy="16.5" r="1.8" fill="currentColor" />
+      <circle cx="32.5" cy="9.5" r="1.6" fill="currentColor" />
+    </svg>
+  )
+}
+
+{
+  jewel === 'batons' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Marshal: Crossed Batons */}
+      <path
+        d="M12 36L36 12"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <path
+        d="M12 12L36 36"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <circle cx="11" cy="37" r="2.5" stroke="currentColor" stroke-width="2" />
+      <circle cx="37" cy="11" r="2.5" stroke="currentColor" stroke-width="2" />
+      <circle cx="11" cy="11" r="2.5" stroke="currentColor" stroke-width="2" />
+      <circle cx="37" cy="37" r="2.5" stroke="currentColor" stroke-width="2" />
+      <circle
+        cx="24"
+        cy="24"
+        r="3.2"
+        fill="currentColor"
+        fill-opacity="0.25"
+        stroke="currentColor"
+        stroke-width="1.8"
+      />
+    </svg>
+  )
+}
+
+{
+  jewel === 'sword' && (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class={className}
+      aria-hidden="true"
+    >
+      {/* Tiler: Drawn Sword */}
+      <polygon
+        points="24,6 27,13 26.2,31 21.8,31 21,13"
+        stroke="currentColor"
+        stroke-width="2.2"
+        fill="currentColor"
+        fill-opacity="0.16"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M24 12V30"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <path
+        d="M13 31.5H35"
+        stroke="currentColor"
+        stroke-width="2.8"
+        stroke-linecap="round"
+      />
+      <path
+        d="M24 31.5V39.5"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <circle cx="24" cy="41.5" r="2.4" fill="currentColor" />
+    </svg>
+  )
+}

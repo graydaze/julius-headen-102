@@ -2,79 +2,267 @@
 import '../styles/global.css';
 
 interface Props {
-	title: string;
+  title: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const {
+  title,
+  description = 'Julius A. Headen Lodge No. 102 — Free and Accepted Masons in Federal Way, Washington. Dedicated to Brotherly Love, Relief, and Truth.',
+} = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/history', label: 'History' },
+  { href: '/officers', label: 'Officers' },
+  { href: '/dues', label: 'Dues' },
+  { href: '/contact', label: 'Contact' },
+];
+
+const isActive = (href: string) => currentPath === href;
+const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Julius A. Headen Lodge No. 102" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-		<title>{title} | Julius A. Headen Lodge No. 102</title>
-		<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-	</head>
-	<body class="bg-gray-50 flex flex-col min-h-screen font-sans text-gray-900">
-		
-		<header class="bg-[#0A192F] text-white shadow-md border-b-4 border-[#D4AF37]">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div class="flex justify-between items-center h-20">
-					<div class="flex-shrink-0 flex items-center">
-						<a href="/" class="text-2xl font-bold tracking-wider text-[#D4AF37]">
-							Lodge No. 102
-						</a>
-					</div>
-					<nav class="hidden md:flex space-x-8">
-						<a href="/" class="hover:text-[#D4AF37] transition-colors duration-200">Home</a>
-						<a href="/history" class="hover:text-[#D4AF37] transition-colors duration-200">History</a>
-						<a href="/leadership" class="hover:text-[#D4AF37] transition-colors duration-200">Leadership</a>
-						<a href="/events" class="hover:text-[#D4AF37] transition-colors duration-200">Events</a>
-						<a href="/dues" class="hover:text-[#D4AF37] transition-colors duration-200">Dues</a>
-					</nav>
-					<div class="md:hidden flex items-center">
-						<button class="text-white hover:text-[#D4AF37] focus:outline-none">
-							<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-							</svg>
-						</button>
-					</div>
-				</div>
-			</div>
-		</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06101F" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title} | Julius A. Headen Lodge No. 102</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-[#F8F6F0] text-[#0A192F] font-sans">
+    <!-- Sticky Navy & Gold Navbar -->
+    <header class="sticky top-0 z-50 bg-[#06101F]/95 backdrop-blur-md border-b border-[#D4AF37]/40 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Brand Mark -->
+          <a
+            href="/"
+            class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] rounded-sm"
+          >
+            <span class="flex items-center justify-center w-10 h-10 rounded-sm border border-[#D4AF37]/50 bg-[#0A192F] group-hover:border-[#F4D03F] transition-colors">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 100 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <polygon
+                  points="50,14 14,82 86,82"
+                  stroke="#D4AF37"
+                  stroke-width="7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M 31 59 Q 50 42 69 59 Q 50 76 31 59 Z"
+                  stroke="#F4D03F"
+                  stroke-width="5.5"
+                  stroke-linejoin="round"
+                />
+                <circle cx="50" cy="59" r="5" fill="#F4D03F" />
+              </svg>
+            </span>
+            <span class="flex flex-col leading-tight">
+              <span class="font-display text-base sm:text-lg font-bold tracking-wider text-gold-gradient">
+                Julius A. Headen
+              </span>
+              <span class="text-[11px] uppercase tracking-[0.22em] text-gray-300/90">
+                Lodge No. 102 &bull; F.&amp;A.M.
+              </span>
+            </span>
+          </a>
 
-		<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-			<slot />
-		</main>
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-8" aria-label="Main navigation">
+            {
+              navItems.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <a
+                    href={item.href}
+                    aria-current={active ? 'page' : undefined}
+                    class:list={[
+                      'relative py-2 text-sm uppercase tracking-[0.16em] font-semibold transition-colors',
+                      active
+                        ? 'text-[#F4D03F]'
+                        : 'text-gray-200 hover:text-[#D4AF37]',
+                    ]}
+                  >
+                    {item.label}
+                    {active && (
+                      <span
+                        class="absolute inset-x-0 -bottom-0.5 h-0.5 bg-gradient-to-r from-transparent via-[#F4D03F] to-transparent"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </a>
+                );
+              })
+            }
+          </nav>
 
-		<footer class="bg-[#333333] text-gray-300 py-8 border-t-4 border-[#D4AF37]">
-			<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-				<div class="mb-4 md:mb-0">
-					<p class="text-sm">&copy; {new Date().getFullYear()} Julius A. Headen Lodge No. 102. All rights reserved.</p>
-				</div>
-				<div class="flex space-x-6 text-sm">
-					<a href="/contact" class="hover:text-white transition-colors duration-200">Contact Us</a>
-					<a href="/admin" class="hover:text-white transition-colors duration-200">Officer Login</a>
-				</div>
-			</div>
-		</footer>
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-toggle"
+            type="button"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-sm border border-[#D4AF37]/40 text-[#D4AF37] hover:text-[#F4D03F] hover:border-[#F4D03F] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] transition-colors"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation menu"
+          >
+            <svg
+              id="icon-menu-open"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+            </svg>
+            <svg
+              id="icon-menu-close"
+              class="hidden"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
 
-		<script is:inline>
-		  if (window.netlifyIdentity) {
-		    window.netlifyIdentity.on("init", user => {
-		      if (!user) {
-		        window.netlifyIdentity.on("login", () => {
-		          document.location.href = "/admin/";
-		        });
-		      }
-		    });
-		  }
-		</script>
-	</body>
+      <!-- Mobile Navigation Drawer -->
+      <nav
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-[#D4AF37]/25 bg-[#0A192F]"
+        aria-label="Mobile navigation"
+      >
+        <div class="px-4 py-4 space-y-2">
+          {
+            navItems.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <a
+                  href={item.href}
+                  aria-current={active ? 'page' : undefined}
+                  class:list={[
+                    'block px-4 py-3 rounded-sm text-sm uppercase tracking-[0.16em] font-semibold transition-colors',
+                    active
+                      ? 'bg-[#D4AF37]/15 text-[#F4D03F] border-l-2 border-[#F4D03F]'
+                      : 'text-gray-200 hover:bg-[#06101F]/60 hover:text-[#D4AF37]',
+                  ]}
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Page Content -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Matching Mosaic Pavement Footer -->
+    <footer class="mosaic-pavement text-gray-300 border-t-4 border-[#D4AF37]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+          <div>
+            <p class="font-display text-lg font-bold tracking-wider text-gold-gradient">
+              Julius A. Headen Lodge No. 102
+            </p>
+            <p class="mt-2 text-sm text-gray-400">
+              Free and Accepted Masons &bull; Federal Way, Washington
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-[0.18em] font-semibold">
+            {
+              navItems.map((item) => (
+                <a
+                  href={item.href}
+                  class="text-gray-300 hover:text-[#F4D03F] transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))
+            }
+          </div>
+
+          <div class="md:text-right text-xs text-gray-400 space-y-1">
+            <p>&copy; {currentYear} Julius A. Headen Lodge No. 102.</p>
+            <p class="text-[#D4AF37]/80">Brotherly Love &bull; Relief &bull; Truth</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle & Scroll-Reveal Observer -->
+    <script>
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('icon-menu-open');
+      const closeIcon = document.getElementById('icon-menu-close');
+
+      if (toggleBtn && mobileMenu && openIcon && closeIcon) {
+        toggleBtn.addEventListener('click', () => {
+          const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+          toggleBtn.setAttribute('aria-expanded', String(!expanded));
+          mobileMenu.classList.toggle('hidden', expanded);
+          openIcon.classList.toggle('hidden', !expanded);
+          closeIcon.classList.toggle('hidden', expanded);
+        });
+      }
+
+      const revealElements = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        revealElements.forEach((el) => observer.observe(el));
+      } else {
+        revealElements.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
+  </body>
 </html>

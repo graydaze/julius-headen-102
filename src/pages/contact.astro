@@ -1,49 +1,250 @@
 ---
-const instagramUrl = "https://instagram.com/juliusaheaden102";
+import Layout from '../layouts/Layout.astro';
+import MasonicDivider from '../components/MasonicDivider.astro';
+
+const emailAddress = 'secretary@jah102.com';
+const instagramHandle = '@juliusaheaden102';
+const instagramUrl = 'https://instagram.com/juliusaheaden102';
 ---
 
-<section class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8 text-center">
-  <h2 class="text-3xl font-extrabold text-[#0A192F] tracking-tight">Connect With Us</h2>
-  <div class="w-16 h-1 bg-[#D4AF37] mx-auto mt-4 mb-8 rounded-full"></div>
-  
-  <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-    For inquiries, community outreach, or to learn more about our upcoming events, reach out to us directly on Instagram. 
-    
-    Our officers monitor the page and will respond promptly.
-  </p>
+<Layout
+  title="Contact"
+  description="Contact Julius A. Headen Lodge No. 102 in Federal Way, Washington for inquiries, visiting brethren, or seeking light in Freemasonry."
+>
+  <!-- Page Banner -->
+  <section class="relative mosaic-pavement text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#D4AF37]">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(212,175,55,0.14),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+    <div class="relative max-w-4xl mx-auto text-center">
+      <p class="text-xs uppercase tracking-[0.28em] text-[#D4AF37] font-semibold mb-3">
+        Reach the Lodge
+      </p>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-wide text-gold-gradient">
+        Contact Us
+      </h1>
+      <MasonicDivider dark={true} />
+      <p class="text-gray-200/90 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Whether you are a traveling Brother, a man seeking further light in Freemasonry, or a neighbor in the Federal Way community, we welcome your message.
+      </p>
+    </div>
+  </section>
 
-  <!-- Automated Routing Indicator -->
-  <div class="flex flex-col items-center justify-center gap-4 p-8 bg-gray-50 rounded-xl border border-gray-200">
-    <svg width="48" height="48" class="text-pink-600 animate-pulse fill-current" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-    </svg>
-    <p class="text-xl font-medium text-gray-800" id="redirect-message">
-      Redirecting to Instagram in <span id="countdown-timer" class="font-bold text-pink-600">5</span>...
-    </p>
-  </div>
-</section>
+  <!-- Three-Column Contact Grid -->
+  <section class="max-w-6xl mx-auto py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Official Email Card -->
+      <article class="reveal bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+        <div class="w-14 h-14 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-5">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-bold text-[#0A192F] tracking-wide">
+          Official Email
+        </h2>
+        <p class="text-gray-600 mt-2 mb-5 text-sm leading-relaxed">
+          For official lodge business, Secretary communications, visiting Brother verifications, and general inquiries.
+        </p>
+        <a
+          href={`mailto:${emailAddress}`}
+          class="mt-auto text-[#9E7B1C] hover:text-[#0A192F] font-semibold text-sm tracking-wide underline decoration-[#D4AF37]/60 underline-offset-4 transition-colors"
+        >
+          {emailAddress}
+        </a>
+      </article>
 
-<!-- Astro define:vars explicitly passes the server-side variable to the client script -->
-<script define:vars={{ instagramUrl }}>
-  document.addEventListener('DOMContentLoaded', () => {
-    let timeLeft = 5;
-    const timerElement = document.getElementById('countdown-timer');
-    const messageElement = document.getElementById('redirect-message');
+      <!-- Lodge Location Card -->
+      <article
+        class="reveal bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+        style="transition-delay: 100ms;"
+      >
+        <div class="w-14 h-14 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-5">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-bold text-[#0A192F] tracking-wide">
+          Lodge Location
+        </h2>
+        <p class="text-gray-600 mt-2 mb-5 text-sm leading-relaxed">
+          Julius A. Headen Lodge No. 102
+          <br />
+          Federal Way, Washington
+        </p>
+        <p class="mt-auto px-3 py-1.5 rounded-sm bg-[#F8F6F0] border border-[#D4AF37]/35 text-[#0A192F] font-medium text-xs">
+          2nd Monday of the month
+        </p>
+      </article>
 
-    if (timerElement && messageElement) {
-      const countdown = setInterval(() => {
-        timeLeft -= 1;
-        
-        if (timeLeft > 0) {
-          timerElement.textContent = timeLeft;
-        } else {
-          clearInterval(countdown);
-          messageElement.textContent = "Routing securely...";
-          
-          // Use replace() to remove this intermediate page from browser history
-          window.location.replace(instagramUrl);
-        }
-      }, 1000);
-    }
-  });
-</script>
+      <!-- Instagram Card -->
+      <article
+        class="reveal bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+        style="transition-delay: 200ms;"
+      >
+        <div class="w-14 h-14 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-5">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-bold text-[#0A192F] tracking-wide">
+          Instagram
+        </h2>
+        <p class="text-gray-600 mt-2 mb-5 text-sm leading-relaxed">
+          Follow our fellowship, charitable outreach, and community events across Federal Way and the Puget Sound.
+        </p>
+        <a
+          href={instagramUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-auto text-[#9E7B1C] hover:text-[#0A192F] font-semibold text-sm tracking-wide underline decoration-[#D4AF37]/60 underline-offset-4 transition-colors"
+        >
+          {instagramHandle}
+        </a>
+      </article>
+    </div>
+
+    <!-- Serverless Contact Form (Web3Forms) -->
+    <div class="reveal mt-16 max-w-3xl mx-auto bg-[#0A192F] text-white rounded-sm p-8 sm:p-12 border border-[#D4AF37]/40 border-t-4 border-t-[#D4AF37] shadow-2xl">
+      <div class="text-center mb-8">
+        <p class="text-xs uppercase tracking-[0.26em] text-[#D4AF37] font-semibold mb-2">
+          Direct Inquiry
+        </p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-gold-gradient tracking-wide">
+          Send a Message to the Lodge
+        </h2>
+        <MasonicDivider dark={true} />
+        <p class="text-sm text-gray-300 max-w-xl mx-auto">
+          Complete the form below and your inquiry will be routed directly to the Lodge Secretary.
+        </p>
+      </div>
+
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New Inquiry from JAH102.com" />
+        <input type="hidden" name="from_name" value="JAH 102 Lodge Website" />
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          style="display: none;"
+          tabindex="-1"
+          autocomplete="off"
+        />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label
+              for="contact-name"
+              class="block text-xs uppercase tracking-[0.18em] font-semibold text-[#D4AF37] mb-2"
+            >
+              Full Name <span class="text-[#F4D03F]">*</span>
+            </label>
+            <input
+              id="contact-name"
+              type="text"
+              name="name"
+              required
+              autocomplete="name"
+              placeholder="Your full name"
+              class="w-full px-4 py-3 rounded-sm bg-[#06101F] border border-[#D4AF37]/35 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#F4D03F] focus:ring-1 focus:ring-[#F4D03F] transition-colors"
+            />
+          </div>
+
+          <div>
+            <label
+              for="contact-email"
+              class="block text-xs uppercase tracking-[0.18em] font-semibold text-[#D4AF37] mb-2"
+            >
+              Email Address <span class="text-[#F4D03F]">*</span>
+            </label>
+            <input
+              id="contact-email"
+              type="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="you@example.com"
+              class="w-full px-4 py-3 rounded-sm bg-[#06101F] border border-[#D4AF37]/35 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#F4D03F] focus:ring-1 focus:ring-[#F4D03F] transition-colors"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label
+            for="contact-message"
+            class="block text-xs uppercase tracking-[0.18em] font-semibold text-[#D4AF37] mb-2"
+          >
+            Message <span class="text-[#F4D03F]">*</span>
+          </label>
+          <textarea
+            id="contact-message"
+            name="message"
+            rows="5"
+            required
+            placeholder="How may Julius A. Headen Lodge No. 102 assist you?"
+            class="w-full px-4 py-3 rounded-sm bg-[#06101F] border border-[#D4AF37]/35 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-[#F4D03F] focus:ring-1 focus:ring-[#F4D03F] transition-colors resize-y"
+          ></textarea>
+        </div>
+
+        <div class="pt-2 text-center">
+          <button
+            type="submit"
+            class="btn-gold-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-3.5 rounded-sm text-sm font-bold uppercase tracking-wider text-[#06101F] shadow-lg hover:-translate-y-0.5 transition-transform cursor-pointer"
+          >
+            <span>Send Message</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="22" y1="2" x2="11" y2="13" />
+              <polygon points="22 2 15 22 11 13 2 9 22 2" />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</Layout>

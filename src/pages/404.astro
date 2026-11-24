@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MasonicDivider from '../components/MasonicDivider.astro';
+---
+
+<Layout
+  title="Page Not Found"
+  description="The requested page could not be found on Julius A. Headen Lodge No. 102."
+>
+  <section class="relative mosaic-pavement text-white py-24 sm:py-32 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(212,175,55,0.16),transparent_60%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="relative max-w-2xl w-full mx-auto p-8 sm:p-14 border border-[#D4AF37]/40 rounded-sm bg-[#0A192F]/85 backdrop-blur-xs shadow-2xl text-center">
+      <div
+        class="pointer-events-none absolute inset-2.5 border border-[#D4AF37]/25 rounded-xs"
+        aria-hidden="true"
+      ></div>
+
+      <div class="relative z-10">
+        <p class="text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-semibold mb-3">
+          Error 404
+        </p>
+        <h1 class="text-5xl sm:text-7xl font-extrabold text-gold-gradient tracking-wider">
+          404
+        </h1>
+        <h2 class="mt-3 text-xl sm:text-2xl font-bold text-white tracking-wide">
+          Path Not Found
+        </h2>
+
+        <MasonicDivider dark={true} />
+
+        <p class="text-gray-300 text-sm sm:text-base max-w-md mx-auto leading-relaxed">
+          The page you are seeking may have been moved or no longer exists. Return to the Lodge home page to continue your journey.
+        </p>
+
+        <div class="mt-8">
+          <a
+            href="/"
+            class="btn-gold-shimmer inline-flex items-center justify-center px-8 py-3.5 text-[#06101F] font-bold tracking-wider uppercase text-sm rounded-sm shadow-lg hover:-translate-y-0.5 transition-transform"
+          >
+            Return to Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

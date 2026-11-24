@@ -1,0 +1,206 @@
+---
+import OfficerJewel, { type JewelType } from './OfficerJewel.astro';
+
+export interface Officer {
+  title: string;
+  prefix: string;
+  name: string;
+  station: string;
+  jewel: JewelType;
+  email: string;
+  photo: string | null;
+  featured: boolean;
+}
+
+interface Props {
+  officer: Officer;
+  delayMs?: number;
+}
+
+const { officer, delayMs = 0 } = Astro.props;
+const isFeatured = officer.featured;
+const hasStation = Boolean(officer.station && officer.station.trim().length > 0);
+const hasEmail = Boolean(officer.email && officer.email.trim().length > 0);
+const hasPhoto = Boolean(officer.photo && officer.photo.trim().length > 0);
+const displayName = `${officer.prefix} ${officer.name}`.trim();
+---
+
+{
+  isFeatured ? (
+    <article
+      class="reveal relative overflow-hidden bg-[#0A192F] text-white rounded-sm p-8 sm:p-10 border border-[#D4AF37]/50 border-t-4 border-t-[#D4AF37] shadow-2xl text-center flex flex-col items-center"
+      style={delayMs > 0 ? `transition-delay: ${delayMs}ms;` : undefined}
+    >
+      {/* Subtle radial gold glow & tesselated inner inset border */}
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(212,175,55,0.16),transparent_62%)]"
+        aria-hidden="true"
+      />
+      <div
+        class="pointer-events-none absolute inset-2.5 border border-[#D4AF37]/25 rounded-xs"
+        aria-hidden="true"
+      />
+
+      <div class="relative z-10 flex flex-col items-center w-full">
+        {/* Portrait or Masonic Jewel Fallback Medallion */}
+        <div class="relative mb-6">
+          {hasPhoto ? (
+            <div class="w-28 h-28 rounded-full p-1 bg-[#06101F] border-2 border-[#F4D03F] shadow-[0_0_24px_rgba(212,175,55,0.35)]">
+              <img
+                src={officer.photo!}
+                alt={`${displayName} — ${officer.title}`}
+                width="112"
+                height="112"
+                loading="lazy"
+                class="w-full h-full object-cover rounded-full"
+              />
+            </div>
+          ) : (
+            <div class="relative w-28 h-28 rounded-full bg-[#06101F] border-2 border-[#D4AF37] text-[#F4D03F] shadow-[0_0_24px_rgba(212,175,55,0.28)] flex items-center justify-center">
+              <span
+                class="pointer-events-none absolute inset-1.5 rounded-full border border-[#D4AF37]/35"
+                aria-hidden="true"
+              />
+              <OfficerJewel jewel={officer.jewel} size={46} class="relative z-10" />
+            </div>
+          )}
+
+          {hasPhoto && (
+            <span
+              class="absolute -bottom-1 -right-1 w-9 h-9 rounded-full bg-[#06101F] border border-[#D4AF37] text-[#F4D03F] flex items-center justify-center shadow-md"
+              aria-hidden="true"
+            >
+              <OfficerJewel jewel={officer.jewel} size={20} />
+            </span>
+          )}
+        </div>
+
+        {hasStation && (
+          <span class="inline-block mb-3 px-3 py-1 rounded-xs bg-[#06101F] border border-[#D4AF37]/45 text-[#F4D03F] text-[11px] uppercase tracking-[0.22em] font-semibold">
+            {officer.station}
+          </span>
+        )}
+
+        <h3 class="text-2xl sm:text-3xl font-extrabold text-gold-gradient tracking-wide">
+          {officer.title}
+        </h3>
+
+        <span
+          class="my-3.5 block h-px w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent"
+          aria-hidden="true"
+        />
+
+        <p class="text-base sm:text-lg text-gray-100 font-medium tracking-wide">
+          <span class="text-[#D4AF37] font-semibold mr-1.5">{officer.prefix}</span>
+          <span>{officer.name}</span>
+        </p>
+
+        {hasEmail && (
+          <a
+            href={`mailto:${officer.email}`}
+            class="mt-4 inline-flex items-center gap-2 text-sm text-[#F4D03F] hover:text-white font-medium tracking-wide underline decoration-[#D4AF37]/60 underline-offset-4 transition-colors"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0"
+              aria-hidden="true"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>{officer.email}</span>
+          </a>
+        )}
+      </div>
+    </article>
+  ) : (
+    <article
+      class="reveal group h-full bg-white text-[#0A192F] rounded-sm p-7 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+      style={delayMs > 0 ? `transition-delay: ${delayMs}ms;` : undefined}
+    >
+      {/* Portrait or Masonic Jewel Fallback Medallion */}
+      <div class="relative mb-5">
+        {hasPhoto ? (
+          <div class="w-20 h-20 rounded-full p-0.5 bg-[#F8F6F0] border-2 border-[#D4AF37] shadow-sm">
+            <img
+              src={officer.photo!}
+              alt={`${displayName} — ${officer.title}`}
+              width="80"
+              height="80"
+              loading="lazy"
+              class="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        ) : (
+          <div class="relative w-20 h-20 rounded-full bg-[#0A192F] border-2 border-[#D4AF37]/70 text-[#F4D03F] shadow-md flex items-center justify-center group-hover:border-[#F4D03F] group-hover:scale-105 transition-all duration-300">
+            <span
+              class="pointer-events-none absolute inset-1.5 rounded-full border border-[#D4AF37]/30"
+              aria-hidden="true"
+            />
+            <OfficerJewel jewel={officer.jewel} size={34} class="relative z-10" />
+          </div>
+        )}
+
+        {hasPhoto && (
+          <span
+            class="absolute -bottom-1 -right-1 w-7 h-7 rounded-full bg-[#0A192F] border border-[#D4AF37] text-[#F4D03F] flex items-center justify-center shadow-sm"
+            aria-hidden="true"
+          >
+            <OfficerJewel jewel={officer.jewel} size={16} />
+          </span>
+        )}
+      </div>
+
+      {hasStation && (
+        <span class="inline-block mb-2.5 px-2.5 py-0.5 rounded-xs bg-[#F8F6F0] border border-[#D4AF37]/40 text-[#9E7B1C] text-[10px] uppercase tracking-[0.2em] font-semibold">
+          {officer.station}
+        </span>
+      )}
+
+      <h3 class="text-lg sm:text-xl font-bold text-[#0A192F] tracking-wide">
+        {officer.title}
+      </h3>
+
+      <span
+        class="my-3 block h-px w-10 bg-gradient-to-r from-transparent via-[#D4AF37]/80 to-transparent"
+        aria-hidden="true"
+      />
+
+      <p class="text-sm sm:text-base text-gray-700 font-medium">
+        <span class="text-[#9E7B1C] font-semibold mr-1">{officer.prefix}</span>
+        <span>{officer.name}</span>
+      </p>
+
+      {hasEmail && (
+        <a
+          href={`mailto:${officer.email}`}
+          class="mt-auto pt-4 inline-flex items-center gap-1.5 text-xs sm:text-sm text-[#9E7B1C] hover:text-[#0A192F] font-semibold tracking-wide underline decoration-[#D4AF37]/60 underline-offset-4 transition-colors break-all"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="shrink-0"
+            aria-hidden="true"
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          <span>{officer.email}</span>
+        </a>
+      )}
+    </article>
+  )
+}

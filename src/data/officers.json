@@ -1,0 +1,57 @@
+{
+  "masonicYear": "2026–2027",
+  "lodgeName": "Julius A. Headen Lodge No. 102",
+  "elected": [
+    {
+      "title": "Worshipful Master",
+      "prefix": "W.M.",
+      "name": "[Officer Name]",
+      "station": "East",
+      "jewel": "square",
+      "email": "",
+      "photo": null,
+      "featured": true
+    },
+    {
+      "title": "Senior Warden",
+      "prefix": "S.W.",
+      "name": "[Officer Name]",
+      "station": "West",
+      "jewel": "level",
+      "email": "",
+      "photo": null,
+      "featured": false
+    },
+    {
+      "title": "Junior Warden",
+      "prefix": "J.W.",
+      "name": "[Officer Name]",
+      "station": "South",
+      "jewel": "plumb",
+      "email": "",
+      "photo": null,
+      "featured": false
+    },
+    {
+      "title": "Treasurer",
+      "prefix": "Bro.",
+      "name": "[Officer Name]",
+      "station": "Right of the East",
+      "jewel": "keys",
+      "email": "",
+      "photo": null,
+      "featured": false
+    },
+    {
+      "title": "Secretary",
+      "prefix": "Bro.",
+      "name": "[Officer Name]",
+      "station": "Left of the East",
+      "jewel": "pens",
+      "email": "secretary@jah102.com",
+      "photo": null,
+      "featured": false
+    }
+  ],
+  "appointed": []
+}

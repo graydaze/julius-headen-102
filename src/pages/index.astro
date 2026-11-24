@@ -1,37 +1,167 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
-import Card from '../components/Card.astro';
+import MasonicDivider from '../components/MasonicDivider.astro';
 ---
 
-<Layout title="Home">
-	<div class="relative bg-cover bg-center py-24 md:py-32 rounded-2xl overflow-hidden shadow-2xl text-center mt-4 border-b-4 border-[#D4AF37]" 
-		 style="background-image: url('https://images.unsplash.com/photo-1548625361-ecce1ceefae6?q=80&w=2070&auto=format&fit=crop');">
-		
-		<div class="absolute inset-0 bg-[#0A192F]/85"></div>
-		
-		<div class="relative z-10 flex flex-col items-center justify-center px-6">
-			<h1 class="font-serif text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-md">
-				Julius A. Headen <br class="md:hidden" /> Lodge No. 102
-			</h1>
-			<p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-medium">
-				Making good men better through brotherhood, relief, and truth. Welcome to our digital home.
-			</p>
-			
-			<div class="flex flex-col sm:flex-row gap-4">
-				<Button href="/history" text="Our History" variant="primary" />
-				<Button href="/contact" text="Contact the Lodge" variant="secondary" />
-			</div>
-		</div>
-	</div>
+<Layout
+  title="Home"
+  description="Julius A. Headen Lodge No. 102 — Free and Accepted Masons in Federal Way, Washington. Dedicated to Brotherly Love, Relief, and Truth."
+>
+  <!-- Full-Bleed Mosaic Pavement Hero -->
+  <section class="relative mosaic-pavement text-white overflow-hidden py-24 sm:py-32 px-4 sm:px-6 lg:px-8 border-b-4 border-[#D4AF37]">
+    <!-- Ambient radial gold glow behind header -->
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(212,175,55,0.18),transparent_62%)]"
+      aria-hidden="true"
+    ></div>
 
-	<div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-		<Card title="Upcoming Events" borderColor="navy">
-			<p class="text-gray-600">Events managed by the lodge officers will appear here dynamically once the CMS is connected.</p>
-		</Card>
+    <!-- Tesselated double-line inset border frame -->
+    <div class="relative max-w-5xl mx-auto p-8 sm:p-14 border border-[#D4AF37]/40 rounded-sm bg-[#0A192F]/80 backdrop-blur-xs shadow-2xl text-center">
+      <div
+        class="pointer-events-none absolute inset-2.5 border border-[#D4AF37]/25 rounded-xs"
+        aria-hidden="true"
+      ></div>
 
-		<Card title="Lodge Leadership" borderColor="gold">
-			<p class="text-gray-600">Current officers and their contact information will be listed here.</p>
-		</Card>
-	</div>
+      <div class="relative z-10">
+        <p class="text-xs sm:text-sm uppercase tracking-[0.3em] text-[#D4AF37] font-semibold mb-4">
+          Free and Accepted Masons &bull; Federal Way, Washington
+        </p>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-wide text-gold-gradient leading-tight">
+          Julius A. Headen Lodge No. 102
+        </h1>
+
+        <MasonicDivider dark={true} />
+
+        <p class="mt-4 text-base sm:text-lg text-gray-200/90 max-w-2xl mx-auto leading-relaxed">
+          Making good men better through Brotherly Love, Relief, and Truth. Dedicated to moral craftsmanship, lifelong fellowship, and active service across Federal Way and the Puget Sound community.
+        </p>
+
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/contact"
+            class="btn-gold-shimmer w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-[#06101F] font-bold tracking-wider uppercase text-sm rounded-sm shadow-lg hover:-translate-y-0.5 transition-transform"
+          >
+            Seek Further Light
+          </a>
+          <a
+            href="/dues"
+            class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 border border-[#D4AF37] text-[#F4D03F] font-semibold tracking-wider uppercase text-sm rounded-sm hover:bg-[#D4AF37]/15 transition-colors"
+          >
+            Lodge Dues &amp; Support
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three-Column Masonic Pillars Section -->
+  <section class="max-w-7xl mx-auto py-20 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+      <p class="text-xs uppercase tracking-[0.28em] text-[#9E7B1C] font-semibold mb-3">
+        Our Foundational Tenets
+      </p>
+      <h2 class="text-3xl sm:text-4xl font-bold text-[#0A192F] tracking-wide">
+        The Three Principal Tenets
+      </h2>
+      <MasonicDivider dark={false} />
+      <p class="text-gray-600 text-base sm:text-lg leading-relaxed">
+        Every labor of our Craft is guided by timeless principles that unite men of character in service to one another and to humanity.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Pillar 1: Brotherly Love -->
+      <article class="reveal group bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+        <div class="w-16 h-16 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#0A192F] tracking-wide mb-3">
+          Brotherly Love
+        </h3>
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+          We regard the whole human species as one family, uniting men of every background in genuine respect, mutual encouragement, and enduring fellowship.
+        </p>
+      </article>
+
+      <!-- Pillar 2: Relief -->
+      <article
+        class="reveal group bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+        style="transition-delay: 100ms;"
+      >
+        <div class="w-16 h-16 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#0A192F] tracking-wide mb-3">
+          Relief
+        </h3>
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+          To soothe the unhappy, to sympathize with their misfortunes, and to restore peace to troubled minds through quiet, steadfast charity in our Federal Way community.
+        </p>
+      </article>
+
+      <!-- Pillar 3: Truth -->
+      <article
+        class="reveal group bg-white rounded-sm p-8 border border-[#D4AF37]/30 border-t-4 border-t-[#D4AF37] shadow-sm hover:shadow-xl hover:border-[#D4AF37] hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
+        style="transition-delay: 200ms;"
+      >
+        <div class="w-16 h-16 rounded-full bg-[#0A192F] border border-[#D4AF37]/60 text-[#F4D03F] flex items-center justify-center mb-6 group-hover:scale-105 transition-transform">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2" />
+            <path d="M12 20v2" />
+            <path d="m4.93 4.93 1.41 1.41" />
+            <path d="m17.66 17.66 1.41 1.41" />
+            <path d="M2 12h2" />
+            <path d="M20 12h2" />
+            <path d="m6.34 17.66-1.41 1.41" />
+            <path d="m19.07 4.93-1.41 1.41" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-[#0A192F] tracking-wide mb-3">
+          Truth
+        </h3>
+        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+          A divine attribute and the foundation of every virtue—calling each Mason to sincerity, integrity of word, and the lifelong pursuit of wisdom and light.
+        </p>
+      </article>
+    </div>
+  </section>
 </Layout>
